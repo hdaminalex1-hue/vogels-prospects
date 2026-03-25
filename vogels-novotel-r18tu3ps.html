@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vogel's x Novotel - Mounting Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --black: #0a0a0a;
+            --white: #fafafa;
+            --gray-100: #f2f2f2;
+            --gray-200: #e5e5e5;
+            --gray-400: #a3a3a3;
+            --gray-600: #525252;
+            --gray-800: #262626;
+            --accent: #e8590c;
+            --accent-light: #fff4ed;
+            --accent-dark: #c2410c;
+            --green: #16a34a;
+            --green-light: #f0fdf4;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--gray-800); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+        .topbar { background: var(--black); color: var(--white); padding: 10px 0; font-size: 13px; text-align: center; letter-spacing: 0.5px; }
+        .topbar span { opacity: 0.7; }
+        .topbar strong { color: var(--accent); }
+        .nav { padding: 20px 60px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--gray-200); background: var(--white); position: sticky; top: 0; z-index: 100; }
+        .nav-logo { font-size: 22px; font-weight: 700; color: var(--black); text-decoration: none; letter-spacing: -0.5px; }
+        .nav-logo em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--accent); }
+        .nav-badge { background: var(--accent-light); color: var(--accent-dark); padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 500; }
+        .hero { padding: 100px 60px 80px; max-width: 1200px; margin: 0 auto; }
+        .hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; background: var(--gray-100); padding: 8px 16px; border-radius: 20px; font-size: 13px; font-weight: 500; color: var(--gray-600); margin-bottom: 28px; }
+        .hero-eyebrow .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+        .hero h1 { font-family: 'Instrument Serif', serif; font-size: clamp(42px, 5vw, 64px); line-height: 1.1; color: var(--black); max-width: 800px; margin-bottom: 24px; font-weight: 400; }
+        .hero h1 em { font-style: italic; color: var(--accent); }
+        .hero-sub { font-size: 20px; color: var(--gray-600); max-width: 600px; margin-bottom: 40px; line-height: 1.6; }
+        .hero-stats { display: flex; gap: 48px; padding-top: 40px; border-top: 1px solid var(--gray-200); }
+        .stat-item strong { display: block; font-size: 32px; font-family: 'Instrument Serif', serif; color: var(--black); font-weight: 400; }
+        .stat-item span { font-size: 14px; color: var(--gray-400); }
+        .section { padding: 80px 60px; max-width: 1200px; margin: 0 auto; }
+        .section-dark { background: var(--black); color: var(--white); max-width: 100%; padding: 80px 60px; }
+        .section-dark .inner { max-width: 1200px; margin: 0 auto; }
+        .section-label { font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); font-weight: 600; margin-bottom: 12px; }
+        .section-title { font-family: 'Instrument Serif', serif; font-size: clamp(32px, 3.5vw, 44px); font-weight: 400; margin-bottom: 48px; line-height: 1.2; }
+        .section-dark .section-title { color: var(--white); }
+        .pain-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .pain-card { background: var(--gray-100); border-radius: 16px; padding: 36px; transition: transform 0.3s ease; }
+        .pain-card:hover { transform: translateY(-4px); }
+        .pain-icon { width: 48px; height: 48px; background: var(--accent-light); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; font-size: 22px; }
+        .pain-card h3 { font-size: 18px; font-weight: 600; margin-bottom: 10px; color: var(--black); }
+        .pain-card .problem { font-size: 14px; color: var(--gray-600); margin-bottom: 16px; }
+        .pain-card .solution { font-size: 14px; color: var(--green); font-weight: 500; padding-top: 16px; border-top: 1px solid var(--gray-200); }
+        .pain-card .solution::before { content: "\2192 "; color: var(--accent); }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+        .product-card { border: 1px solid rgba(255,255,255,0.12); border-radius: 16px; padding: 32px; transition: all 0.3s ease; background: rgba(255,255,255,0.04); }
+        .product-card:hover { border-color: var(--accent); background: rgba(255,255,255,0.08); }
+        .product-category { font-size: 12px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); font-weight: 600; margin-bottom: 12px; }
+        .product-name { font-size: 20px; font-weight: 600; margin-bottom: 12px; color: var(--white); }
+        .product-usecase { font-size: 14px; color: rgba(255,255,255,0.6); margin-bottom: 16px; line-height: 1.5; }
+        .product-spec { display: inline-block; background: rgba(232, 89, 12, 0.15); color: var(--accent); padding: 4px 12px; border-radius: 8px; font-size: 13px; font-weight: 500; }
+        .benefits-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .benefit-item { display: flex; align-items: flex-start; gap: 16px; padding: 24px; background: var(--gray-100); border-radius: 12px; }
+        .benefit-check { flex-shrink: 0; width: 28px; height: 28px; background: var(--green-light); color: var(--green); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; }
+        .benefit-text { font-size: 15px; font-weight: 500; color: var(--gray-800); }
+        .case-study { background: linear-gradient(135deg, var(--accent-light) 0%, var(--white) 100%); border-radius: 20px; padding: 48px; border: 1px solid rgba(232, 89, 12, 0.15); display: flex; gap: 40px; align-items: center; }
+        .case-icon { flex-shrink: 0; width: 72px; height: 72px; background: var(--accent); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 32px; }
+        .case-content h3 { font-family: 'Instrument Serif', serif; font-size: 24px; font-weight: 400; margin-bottom: 12px; color: var(--black); }
+        .case-content p { font-size: 15px; color: var(--gray-600); line-height: 1.6; }
+        .contact-section { padding: 80px 60px; max-width: 1200px; margin: 0 auto; }
+        .contact-card { background: var(--gray-100); border-radius: 20px; padding: 48px; display: flex; gap: 40px; align-items: center; }
+        .contact-avatar { flex-shrink: 0; width: 80px; height: 80px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; color: white; font-weight: 700; font-family: 'Instrument Serif', serif; }
+        .contact-info h3 { font-family: 'Instrument Serif', serif; font-size: 28px; font-weight: 400; margin-bottom: 4px; color: var(--black); }
+        .contact-info .contact-title { font-size: 14px; color: var(--gray-400); margin-bottom: 16px; }
+        .contact-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+        .contact-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 10px; font-size: 14px; font-weight: 600; text-decoration: none; transition: all 0.3s ease; }
+        .contact-btn-primary { background: var(--accent); color: white; }
+        .contact-btn-primary:hover { background: var(--accent-dark); transform: translateY(-2px); }
+        .contact-btn-secondary { background: white; color: var(--gray-800); border: 1px solid var(--gray-200); }
+        .contact-btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+        .action-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding: 0 60px 80px; max-width: 1200px; margin: 0 auto; }
+        .action-card { border: 1px solid var(--gray-200); border-radius: 16px; padding: 32px; text-decoration: none; color: inherit; transition: all 0.3s ease; display: block; }
+        .action-card:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+        .action-card-icon { font-size: 28px; margin-bottom: 16px; }
+        .action-card h4 { font-size: 16px; font-weight: 600; margin-bottom: 8px; color: var(--black); }
+        .action-card p { font-size: 13px; color: var(--gray-400); }
+        .cta-section { text-align: center; padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
+        .cta-section h2 { font-family: 'Instrument Serif', serif; font-size: clamp(36px, 4vw, 52px); font-weight: 400; margin-bottom: 16px; color: var(--black); }
+        .cta-section h2 em { font-style: italic; color: var(--accent); }
+        .cta-section p { font-size: 18px; color: var(--gray-600); margin-bottom: 40px; max-width: 500px; margin-left: auto; margin-right: auto; }
+        .cta-btn { display: inline-flex; align-items: center; gap: 10px; background: var(--accent); color: var(--white); padding: 18px 40px; border-radius: 12px; font-size: 16px; font-weight: 600; text-decoration: none; transition: all 0.3s ease; }
+        .cta-btn:hover { background: var(--accent-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(232, 89, 12, 0.3); }
+        .cta-secondary { display: block; margin-top: 16px; font-size: 14px; color: var(--gray-400); }
+        .trust-bar { display: flex; justify-content: center; gap: 40px; padding: 40px 60px; border-top: 1px solid var(--gray-200); flex-wrap: wrap; }
+        .trust-item { font-size: 13px; color: var(--gray-400); display: flex; align-items: center; gap: 8px; }
+        .footer { text-align: center; padding: 40px; font-size: 13px; color: var(--gray-400); border-top: 1px solid var(--gray-200); }
+        @media (max-width: 768px) {
+            .nav { padding: 16px 24px; }
+            .hero { padding: 60px 24px 40px; }
+            .section { padding: 60px 24px; }
+            .section-dark { padding: 60px 24px; }
+            .pain-grid { grid-template-columns: 1fr; }
+            .product-grid { grid-template-columns: 1fr; }
+            .benefits-list { grid-template-columns: 1fr; }
+            .hero-stats { flex-direction: column; gap: 24px; }
+            .case-study { flex-direction: column; }
+            .contact-card { flex-direction: column; }
+            .action-cards { grid-template-columns: 1fr; padding: 0 24px 60px; }
+            .cta-section { padding: 60px 24px; }
+            .contact-section { padding: 60px 24px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="topbar"><span>This page was prepared exclusively for </span><strong>Novotel</strong></div>
+    <nav class="nav"><a class="nav-logo" href="#">Vogel<em>'s</em> Pro</a><span class="nav-badge">Personnalis&eacute; pour Novotel</span></nav>
+
+    <section class="hero">
+        <div class="hero-eyebrow"><span class="dot"></span><span>Personnalis&eacute; pour H&ocirc;tellerie</span></div>
+        <h1>Solutions de montage premium pour vos h&ocirc;tels Novotel</h1>
+        <p class="hero-sub">Supports muraux certifi&eacute;s TUV pour &eacute;crans de lobby, TV en chambre et salles de conf&eacute;rence interactives.</p>
+        <div class="hero-stats">
+            <div class="stat-item"><strong>50+</strong><span>Ann&eacute;es d'ing&eacute;nierie n&eacute;erlandaise</span></div>
+            <div class="stat-item"><strong>T&#220;V-5</strong><span>Durabilit&eacute; certifi&eacute;e</span></div>
+            <div class="stat-item"><strong>160kg</strong><span>Charge maximale</span></div>
+            <div class="stat-item"><strong>&#8734;</strong><span>Garantie &agrave; vie</span></div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-label">Nous comprenons vos d&eacute;fis</div>
+        <h2 class="section-title">Voici ce que nous observons chez <em>H&ocirc;tellerie</em></h2>
+        <div class="pain-grid">
+            <div class="pain-card"><div class="pain-icon">&#9889;</div><h3>Maintenance co&uuml;teuse des &eacute;crans</h3><p class="problem">Les supports de qualit&eacute; inf&eacute;rieure n&eacute;cessitent des r&eacute;parations fr&eacute;quentes et perturbent l'exp&eacute;rience client.</p><p class="solution">Supports garantie &agrave; vie avec tests TUV-5, r&eacute;sistance prouv&eacute;e sur 50 ans d'ing&eacute;nierie n&eacute;erlandaise.</p></div><div class="pain-card"><div class="pain-icon">&#127919;</div><h3>Installation complexe multi-sites</h3><p class="problem">Coordonner les installations dans 400+ h&ocirc;tels avec des &eacute;quipes diff&eacute;rentes g&eacute;n&egrave;re des retards et surco&ucirc;ts.</p><p class="solution">Syst&egrave;me Connect-it modulaire avec &eacute;quipe Pro-AV d&eacute;di&eacute;e pour support projet multi-sites.</p></div><div class="pain-card"><div class="pain-icon">&#128295;</div><h3>S&eacute;curit&eacute; et conformit&eacute; h&ocirc;teli&egrave;re</h3><p class="problem">Les normes de s&eacute;curit&eacute; strictes en h&ocirc;tellerie exigent des supports certifi&eacute;s et anti-vol.</p><p class="solution">Certifications TUV et syst&egrave;mes de verrouillage int&eacute;gr&eacute;s pour protection optimale des &eacute;quipements.</p></div>
+        </div>
+    </section>
+
+    <section class="section-dark"><div class="inner">
+        <div class="section-label">Recommand&eacute; pour vous</div>
+        <h2 class="section-title">Solutions adapt&eacute;es &agrave; vos besoins</h2>
+        <div class="product-grid">
+            <div class="product-card"><div class="product-category">Display Wall Mounts</div><div class="product-name">Supports muraux motoris&eacute;s</div><p class="product-usecase">&Eacute;crans de lobby orientables pour diff&eacute;rentes zones de vision client</p><span class="product-spec">Charge jusqu'&agrave; 160kg</span></div><div class="product-card"><div class="product-category">Monitor Arms</div><div class="product-name">S&eacute;rie MOMO</div><p class="product-usecase">Bras ergonomiques pour r&eacute;ception et espaces business center</p><span class="product-spec">Ajustement 360&deg; fluide</span></div><div class="product-card"><div class="product-category">Video Conferencing Solutions</div><div class="product-name">Supports collaboration</div><p class="product-usecase">Salles de r&eacute;union &eacute;quip&eacute;es cam&eacute;ras et barres de son pour visioconf&eacute;rence</p><span class="product-spec">Compatible tous &eacute;crans jusqu'&agrave; 120"</span></div><div class="product-card"><div class="product-category">Ceiling Mounts</div><div class="product-name">Supports plafond pivotants</div><p class="product-usecase">TV en chambre avec vision optimale depuis le lit et salon</p><span class="product-spec">Rotation 180&deg; silencieuse</span></div>
+        </div>
+    </div></section>
+
+    <section class="section">
+        <div class="section-label">Pourquoi Vogel's</div>
+        <h2 class="section-title">Les avantages qui comptent pour vous</h2>
+        <div class="benefits-list">
+            <div class="benefit-item"><div class="benefit-check">&#10003;</div><div class="benefit-text">Installation rapide minimisant les perturbations op&eacute;rationnelles</div></div><div class="benefit-item"><div class="benefit-check">&#10003;</div><div class="benefit-text">Design &eacute;l&eacute;gant s'int&eacute;grant &agrave; l'esth&eacute;tique Novotel</div></div><div class="benefit-item"><div class="benefit-check">&#10003;</div><div class="benefit-text">Robustesse certifi&eacute;e r&eacute;duisant les co&ucirc;ts de maintenance</div></div><div class="benefit-item"><div class="benefit-check">&#10003;</div><div class="benefit-text">Solutions modulaires adaptables aux diff&eacute;rents formats d'h&ocirc;tels</div></div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="case-study">
+            <div class="case-icon">&#128208;</div>
+            <div class="case-content">
+                <h3>&Agrave; quoi cela pourrait ressembler pour vous</h3>
+                <p>Un groupe h&ocirc;telier similaire a &eacute;conomis&eacute; 40% sur la maintenance en 3 ans gr&acirc;ce aux supports Vogel's, tout en am&eacute;liorant la satisfaction client avec des &eacute;crans parfaitement positionn&eacute;s.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="section-label">Votre contact d&eacute;di&eacute;</div>
+        <h2 class="section-title">Pr&ecirc;t &agrave; discuter de votre projet ?</h2>
+        <div class="contact-card">
+            <div class="contact-avatar">V</div>
+            <div class="contact-info">
+                <h3>Vogel's Sales Team</h3>
+                <div class="contact-title">Vogel's Pro-AV Specialist</div>
+                <div class="contact-buttons">
+                    <a href="mailto:" class="contact-btn contact-btn-primary">&#9993; Envoyer un email</a>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="action-cards">
+        <a href="https://www.vogels.com/en/p/pro-avmountadvisor" target="_blank" class="action-card">
+            <div class="action-card-icon">&#9881;</div>
+            <h4>Configurez votre solution</h4>
+            <p>Utilisez notre Conseiller Pro-AV</p>
+        </a>
+        <a href="mailto:?subject=Custom quote request - Novotel" class="action-card">
+            <div class="action-card-icon">&#128203;</div>
+            <h4>Demander un devis personnalis&eacute;</h4>
+            <p>Recevez une offre sur mesure sous 48h</p>
+        </a>
+        <a href="https://www.vogels.com/en/p" target="_blank" class="action-card">
+            <div class="action-card-icon">&#128269;</div>
+            <h4>Parcourir toutes les solutions Pro-AV</h4>
+            <p>Explorez le catalogue complet Vogel's</p>
+        </a>
+    </div>
+
+    <div class="trust-bar">
+        <div class="trust-item">&#127475;&#127473; Fait confiance par plus de 10 000 professionnels en Europe</div>
+    </div>
+
+    <footer class="footer">Solutions de montage premium depuis 1973 &#8212; &#169; 2026 Vogel's Products B.V. &#8212; Novotel.</footer>
+</body>
+</html>
